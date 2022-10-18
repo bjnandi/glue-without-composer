@@ -16,7 +16,7 @@
 									<div class="header-text content-text mb-0">
 										<div class="container">
 											<div class="text-center text-white mb-7 mt-9">
-												<h1 class="mb-2">{{$title->searchtitle}}</h1>
+												<h1 class="mb-2">{{$title->searchtitle}} Biswajit</h1>
 												<p class="fs-18">{{$title->searchsub}}</p>
 											</div>
 											<div class="row">
