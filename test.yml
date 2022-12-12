@@ -13,6 +13,7 @@ phases:
       - ls
       - mkdir -p nvd  # Will store nvd here
       - cd dependency-check/bin
+      - ls
       - dependency-check.sh \
     
   
