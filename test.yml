@@ -1,0 +1,34 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - sudo apt-get update
+      - wget https://github.com/jeremylong/DependencyCheck/releases/download/v7.4.1/dependency-check-7.4.1-release.zip
+      - unzip dependency-check-7.4.1-release
+      - npm install
+      
+  build:
+    commands:
+      - mkdir -p nvd  # Will store nvd here
+      - |
+        dependency-check.sh \
+          --project my-project \
+          -s . \
+          -f JUNIT \
+          --disableNuspec \
+          --disableAssembly \
+          -d nvd \     
+  
+# Caching the nvd database so each run doesn't download the
+# entire nvd
+cache:
+  paths:
+    - nvd/**/*
+
+reports:
+  # ARN of the Codebuild Report created in Cloudformation
+  arn:aws:codebuild:us-east-1:916116923608:report-group/gule_test:
+    files:
+      - dependency-check-junit.xml
+    file-format: JunitXml
