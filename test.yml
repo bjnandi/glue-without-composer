@@ -10,15 +10,11 @@ phases:
       
   build:
     commands:
+      - ls
       - mkdir -p nvd  # Will store nvd here
-      - |
-        dependency-check.sh \
-          --project my-project \
-          -s . \
-          -f JUNIT \
-          --disableNuspec \
-          --disableAssembly \
-          -d nvd \     
+      - cd bin
+      - dependency-check.sh \
+    
   
 # Caching the nvd database so each run doesn't download the
 # entire nvd
