@@ -12,7 +12,7 @@ phases:
     commands:
       - ls
       - mkdir -p nvd  # Will store nvd here
-      - cd bin
+      - cd dependency-check/bin
       - dependency-check.sh \
     
   
